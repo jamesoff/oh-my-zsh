@@ -40,7 +40,7 @@ ZSH_THEME="jms"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew osx redis-cli battery)
+plugins=(git brew osx redis-cli battery ec2)
 
 source $ZSH/oh-my-zsh.sh
 

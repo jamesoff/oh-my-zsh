@@ -79,4 +79,13 @@ elif [[ $(uname) == "Linux"  ]] ; then
       echo "∞"
     fi
   }
+else
+	function battery_pct_remaining() {
+	}
+
+	function battery_time_remaining() {
+	}
+
+	function battery_pct_prompt() {
+	}
 fi

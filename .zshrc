@@ -49,4 +49,6 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin:/U
 
 export COPYFILE_DISABLE=true
 
-source /usr/local/bin/aws_zsh_completer.sh
+if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then
+	source /usr/local/bin/aws_zsh_completer.sh
+fi

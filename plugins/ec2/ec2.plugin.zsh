@@ -40,4 +40,16 @@ function ec2_reset() {
 	unset AWS_ACCESS_KEY_ID
 	unset AWS_SECRET_ACCESS_KEY
 	unset AWS_DEFAULT_OUTPUT
+	unset AWS_PROFILE
 }
+
+# Use this in theme to get profile/region in prompt
+function aws_prompt() {
+	if [ "x$AWS_PROFILE" = "x" ]; then
+		echo ""
+	else
+		echo "%{$fg[yellow]%}$AWS_PROFILE%{$reset_color%}/%{$fg[yellow]%}$AWS_DEFAULT_REGION%{$reset_color%}"
+	fi
+}
+
+

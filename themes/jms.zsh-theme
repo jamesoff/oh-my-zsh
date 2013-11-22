@@ -24,15 +24,6 @@ else
 fi
 BATTERY=""
 
-function aws_prompt() {
-	if [ "x$AWS_PROFILE" = "x" ]; then
-		echo ""
-	else
-		echo "%{$fg[yellow]%}$AWS_PROFILE%{$reset_color%}/%{$fg[yellow]%}$AWS_DEFAULT_REGION%{$reset_color%}"
-	fi
-}
-
-
 PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{$reset_color%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )$BATTERY%(!.%{$fg[red]%}.%{$fg[green]%})%#%{$reset_color%} '
 RPROMPT='$(aws_prompt)'
 

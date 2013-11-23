@@ -24,3 +24,5 @@ alias sl=ls # often screw this up
 
 alias afind='ack-grep -il'
 
+# Make wildcards work in find command
+alias find='noglob find'

@@ -25,7 +25,7 @@ fi
 BATTERY=""
 
 PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{$reset_color%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )$BATTERY%(!.%{$fg[red]%}.%{$fg[green]%})%#%{$reset_color%} '
-RPROMPT='$(aws_prompt)'
+RPROMPT='$(aws_prompt) %{$fg_bold[black]%}%T%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=":%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"

@@ -25,7 +25,13 @@ fi
 BATTERY=""
 
 PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{$reset_color%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )$BATTERY%(!.%{$fg[red]%}.%{$fg[green]%})%#%{$reset_color%} '
-RPROMPT='$(aws_prompt) %{$fg_bold[black]%}%*%{$reset_color%}'
+
+RPROMPT='%{$fg_bold[black]%}%*%{$reset_color%}'
+# include aws_prompt if the ec2 plugin is loaded
+if [ "x$AWS_PROMPT" = "x1" ]; then
+	echo AWS_PROMPT is $AWS_PROMPT
+	RPROMPT="\\%(aws_prompt) $RPROMPT"
+fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX=":%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"

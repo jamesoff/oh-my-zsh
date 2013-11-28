@@ -52,4 +52,4 @@ function aws_prompt() {
 	fi
 }
 
-
+export AWS_PLUGIN=1

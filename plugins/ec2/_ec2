@@ -1,3 +1,5 @@
 #compdef ec2
 
-_arguments "1:EC2 profile:($(ls -1 ~/.ec2) --clear --reset)"
+#_arguments "1:EC2 profile:($(ls -1 ~/.ec2) --clear --reset)"
+_path_files -W ~/.ec2
+_arguments ":EC2 profile command:(--clear --reset)"

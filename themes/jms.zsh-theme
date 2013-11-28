@@ -28,9 +28,8 @@ PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{$reset_color%}%m$SCR_WINDOW$SCR_COLOR
 
 RPROMPT='%{$fg_bold[black]%}%*%{$reset_color%}'
 # include aws_prompt if the ec2 plugin is loaded
-if [ "x$AWS_PROMPT" = "x1" ]; then
-	echo AWS_PROMPT is $AWS_PROMPT
-	RPROMPT="\\%(aws_prompt) $RPROMPT"
+if [ "x$AWS_PLUGIN" = "x1" ]; then
+	RPROMPT='$(aws_prompt) '$RPROMPT
 fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX=":%{$fg[yellow]%}"

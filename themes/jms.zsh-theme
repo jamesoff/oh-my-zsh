@@ -24,7 +24,10 @@ else
 fi
 BATTERY=""
 
-PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{$reset_color%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%#%{$reset_color%} '
+HOSTNAME=$(hostname)
+HOSTCOLOUR=$(string_hash $HOSTNAME:l 15)
+
+PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%#%{$reset_color%} '
 
 RPROMPT='$BATTERY%{$fg_bold[black]%}%*%{$reset_color%}'
 # include aws_prompt if the ec2 plugin is loaded

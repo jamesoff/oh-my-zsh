@@ -22,7 +22,7 @@ function string_hash() {
 	HASHVAL=0
 	for i in {1..${#HASHSTR}}; do;
 		THISCHAR=$HASHSTR[$i]
-		HASHVAL=$(( $HASHVAL + $((#THISCHAR)) ))
+		HASHVAL=$(( $HASHVAL + $((#THISCHAR)) * $i ))
 	done
 	HASHSIZE=$(( $HASHSIZE - 1 ))
 	HASHVAL=$(( $HASHVAL % $HASHSIZE ))

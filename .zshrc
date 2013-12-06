@@ -52,3 +52,6 @@ export COPYFILE_DISABLE=true
 if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then
 	source /usr/local/bin/aws_zsh_completer.sh
 fi
+
+alias -g jspretty="| jq ."
+setopt TRANSIENT_RPROMPT

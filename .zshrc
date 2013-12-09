@@ -47,6 +47,10 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin:/Users/james/bin
 
+if [ -d /Users/james/pebble ]; then
+	export PATH=$PATH:/Users/james/pebble/PebbleSDK-2.0-BETA2/bin
+fi
+
 export COPYFILE_DISABLE=true
 
 if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then

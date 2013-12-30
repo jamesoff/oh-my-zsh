@@ -59,3 +59,4 @@ fi
 
 alias -g jspretty="| jq ."
 setopt TRANSIENT_RPROMPT
+REPORTTIME=10

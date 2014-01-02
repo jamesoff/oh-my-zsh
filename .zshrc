@@ -60,3 +60,6 @@ fi
 alias -g jspretty="| jq ."
 setopt TRANSIENT_RPROMPT
 REPORTTIME=10
+
+# zsh-completions from homebrew
+fpath=(/usr/local/share/zsh-completions $fpath)

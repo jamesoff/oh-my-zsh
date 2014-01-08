@@ -27,7 +27,7 @@ BATTERY=""
 HOSTNAME=$(hostname)
 HOSTCOLOUR=$(string_hash $HOSTNAME:l 15)
 
-PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%#%{$reset_color%} '
+PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)$(svn_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%#%{$reset_color%} '
 
 RPROMPT='$BATTERY%{$fg_bold[black]%}%*%{$reset_color%}'
 # include aws_prompt if the ec2 plugin is loaded
@@ -39,4 +39,9 @@ ZSH_THEME_GIT_PROMPT_PREFIX=":%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{161}!%{$reset_color%}"
+
+ZSH_THEME_SVN_PROMPT_PREFIX=":%{$fg_bold[red]%}"
+ZSH_THEME_SVN_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_SVN_PROMPT_CLEAN=""
+ZSH_THEME_SVN_PROMPT_DIRTY="%F{161}!%{$reset_color%}"
 

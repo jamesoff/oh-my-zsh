@@ -8,8 +8,7 @@ function svn_prompt_info() {
     else
       _DISPLAY=$(svn_get_repo_name)
     fi
-    echo "$ZSH_PROMPT_BASE_COLOR$ZSH_THEME_SVN_PROMPT_PREFIX\
-$ZSH_THEME_REPO_NAME_COLOR$_DISPLAY$ZSH_PROMPT_BASE_COLOR$ZSH_THEME_SVN_PROMPT_SUFFIX$ZSH_PROMPT_BASE_COLOR$(svn_dirty)$ZSH_PROMPT_BASE_COLOR"
+    echo "$ZSH_PROMPT_BASE_COLOR$ZSH_THEME_SVN_PROMPT_PREFIX$ZSH_THEME_REPO_NAME_COLOR$(svn_get_repo_name)@$(svn_get_rev_nr)$ZSH_THEME_SVN_PROMPT_SUFFIX$ZSH_PROMPT_BASE_COLOR$(svn_dirty)$ZSH_PROMPT_BASE_COLOR"
     unset _DISPLAY
   fi
 }
@@ -25,7 +24,8 @@ function in_svn() {
 function svn_get_repo_name() {
   if in_svn; then
     svn info | sed -n 's/Repository\ Root:\ .*\///p' | read SVN_ROOT
-    svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p"
+	echo $SVN_ROOT
+	#echo svn info | sed -n "s/URL:\ .*$SVN_ROOT\///p"
   fi
 }
 

@@ -51,6 +51,10 @@ if [ -d /Users/james/pebble ]; then
 	export PATH=$PATH:/Users/james/pebble/PebbleSDK-2.0-BETA2/bin
 fi
 
+if [ -d /Users/james/bin ]; then
+	export PATH=$PATH:/Users/james/bin
+fi
+
 export COPYFILE_DISABLE=true
 
 if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then

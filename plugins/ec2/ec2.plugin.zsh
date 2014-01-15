@@ -23,10 +23,24 @@ function ec2() {
 
 
 	if [ -f ~/.ec2/$1 ]; then
-		#[[ $(stat -f%SMp "$1") =~ .w.$ ]] && echo "Error: $1 is group-writable" && return 1
-		#[[ $(stat -f%SLp "$1") =~ .w.$ ]] && echo "Error: $1 is world-writable" && return 1
 		echo Switching EC2 profile to $1.
 		source ~/.ec2/$1
+
+		if [ -f ~/.ec2/${1}-s3cfg ]; then
+			echo s3cfg configuration for $1 detected, symlinking as ~/.s3cfg
+			if [ -f ~/.s3cfg -a ! -L ~/.s3cfg ]; then
+				if [ -f ~/.ec2/_s3cfg ]; then
+					rm ~/.ec2/_s3cfg
+				fi
+				mv ~/.s3cfg ~/.ec2/_s3cfg && rm -f ~/.s3cfg
+				echo Previous ~/.s3cfg backed up to ~/.ec2/_s3cfg
+			else
+				rm -f ~/.s3cfg 2> /dev/null
+			fi
+			ln -s ~/.ec2/${1}-s3cfg ~/.s3cfg
+		else
+			rm -f ~/.s3cfg 2> /dev/null
+		fi
 	else
 		echo Profile not defined.
 		return 1

@@ -48,7 +48,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin:/Users/james/bin
 
 if [ -d /Users/james/pebble ]; then
-	export PATH=$PATH:/Users/james/pebble/PebbleSDK-2.0-BETA2/bin
+	export PATH=$PATH:/Users/james/pebble/PebbleSDK-2.0-BETA4/bin
 fi
 
 if [ -d /Users/james/bin ]; then

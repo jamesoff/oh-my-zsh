@@ -67,3 +67,6 @@ REPORTTIME=10
 
 # zsh-completions from homebrew
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# Fix ^U to behave correctly
+bindkey ^U backward-kill-line

@@ -31,7 +31,7 @@ HOSTCOLOUR=$(string_hash $HOSTNAME:l 15)
 # % COUNT=0; TOTAL=0; for j in $( for i in $( history | awk '{OFS="_"; $1 = ""; print $0}' ); do; echo "$i" | wc -c; done ); do; COUNT=$(( COUNT + 1 )); TOTAL=`echo $TOTAL+$j | bc`; done; echo total=$TOTAL count=$COUNT; echo -n average=; echo "$TOTAL / $COUNT" | bc
 # total=74843 count=2749
 # average=27
-PROMPT_AVERAGE=30
+PROMPT_AVERAGE=40
 
 function prompt_space() {
 	# Returns maximum length of command prompt which leaves space for average length command, based on current terminal width

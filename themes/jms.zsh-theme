@@ -24,7 +24,9 @@ else
 fi
 BATTERY=""
 
+#hostname in lowercase please
 HOSTNAME=$(hostname)
+HOSTNAME=$HOSTNAME:l
 HOSTCOLOUR=$(string_hash $HOSTNAME:l 15)
 
 # Average prompt length computed with:
@@ -39,7 +41,7 @@ function prompt_space() {
 }
 
 # Line break in here is on purpose
-PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)$(svn_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%($(prompt_space)l.
+PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}$HOSTNAME$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)$(svn_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%($(prompt_space)l.
 .)%#%{$reset_color%} '
 
 RPROMPT='$BATTERY%{$fg_bold[black]%}%*%{$reset_color%}'

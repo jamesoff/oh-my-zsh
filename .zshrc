@@ -70,3 +70,13 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Fix ^U to behave correctly
 bindkey ^U backward-kill-line
+
+function fuck() {
+	killall -9 $2;
+	if [ $? == 0 ]
+		then
+		echo
+		echo " (╯°□°）╯︵$(echo $2|flip &2>/dev/null)"
+		echo
+	fi
+}

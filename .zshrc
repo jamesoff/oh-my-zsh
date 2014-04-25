@@ -62,6 +62,8 @@ if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then
 fi
 
 alias -g jspretty="| jq ."
+alias flake8="flake8 --ignore=E501"
+
 setopt TRANSIENT_RPROMPT
 REPORTTIME=10
 
@@ -80,3 +82,4 @@ function fuck() {
 		echo
 	fi
 }
+export EDITOR=vim

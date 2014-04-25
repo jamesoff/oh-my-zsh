@@ -55,6 +55,8 @@ function ec2_reset() {
 	unset AWS_SECRET_ACCESS_KEY
 	unset AWS_DEFAULT_OUTPUT
 	unset AWS_PROFILE
+	unalias ssh 2> /dev/null
+	unalias scp 2> /dev/null
 }
 
 # Use this in theme to get profile/region in prompt

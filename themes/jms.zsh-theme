@@ -44,7 +44,7 @@ function prompt_space() {
 PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}$HOSTNAME$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)$(svn_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%($(prompt_space)l.
 .)%#%{$reset_color%} '
 
-RPROMPT='$BATTERY%{$fg_bold[black]%}%*%{$reset_color%}'
+RPROMPT='$BATTERY%{$reset_color%}%*%{$reset_color%}'
 # include aws_prompt if the ec2 plugin is loaded
 if [ "x$AWS_PLUGIN" = "x1" ]; then
 	RPROMPT='$(aws_prompt) '$RPROMPT

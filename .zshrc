@@ -62,8 +62,24 @@ if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then
 fi
 
 alias -g jspretty="| jq ."
+alias flake8="flake8 --ignore=E501"
+
 setopt TRANSIENT_RPROMPT
 REPORTTIME=10
 
 # zsh-completions from homebrew
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# Fix ^U to behave correctly
+bindkey ^U backward-kill-line
+
+function fuck() {
+	killall -9 $2;
+	if [ $? == 0 ]
+		then
+		echo
+		echo " (╯°□°）╯︵$(echo $2|flip &2>/dev/null)"
+		echo
+	fi
+}
+export EDITOR=vim

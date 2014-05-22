@@ -24,14 +24,16 @@ else
 fi
 BATTERY=""
 
+#hostname in lowercase please
 HOSTNAME=$(hostname)
+HOSTNAME=$HOSTNAME:l
 HOSTCOLOUR=$(string_hash $HOSTNAME:l 15)
 
 # Average prompt length computed with:
 # % COUNT=0; TOTAL=0; for j in $( for i in $( history | awk '{OFS="_"; $1 = ""; print $0}' ); do; echo "$i" | wc -c; done ); do; COUNT=$(( COUNT + 1 )); TOTAL=`echo $TOTAL+$j | bc`; done; echo total=$TOTAL count=$COUNT; echo -n average=; echo "$TOTAL / $COUNT" | bc
 # total=74843 count=2749
 # average=27
-PROMPT_AVERAGE=30
+PROMPT_AVERAGE=40
 
 function prompt_space() {
 	# Returns maximum length of command prompt which leaves space for average length command, based on current terminal width
@@ -39,10 +41,10 @@ function prompt_space() {
 }
 
 # Line break in here is on purpose
-PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}%m$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)$(svn_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%($(prompt_space)l.
+PROMPT='%{$reset_color%}%n%{$fg[white]%}@%{%F{$HOSTCOLOUR}%}$HOSTNAME$SCR_WINDOW$SCR_COLOR:%{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)$(svn_prompt_info) %(0?,,%{$fg[red]%}%?!%{$reset_color%} )%(!.%{$fg[red]%}.%{$fg[green]%})%($(prompt_space)l.
 .)%#%{$reset_color%} '
 
-RPROMPT='$BATTERY%{$fg_bold[black]%}%*%{$reset_color%}'
+RPROMPT='$BATTERY%{$reset_color%}%*%{$reset_color%}'
 # include aws_prompt if the ec2 plugin is loaded
 if [ "x$AWS_PLUGIN" = "x1" ]; then
 	RPROMPT='$(aws_prompt) '$RPROMPT

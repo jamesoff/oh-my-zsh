@@ -25,7 +25,7 @@ fi
 BATTERY=""
 
 #hostname in lowercase please
-HOSTNAME=$(hostname)
+HOSTNAME=$(hostname -s)
 HOSTNAME=$HOSTNAME:l
 HOSTCOLOUR=$(string_hash $HOSTNAME:l 15)
 

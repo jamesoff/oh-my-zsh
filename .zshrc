@@ -70,6 +70,11 @@ REPORTTIME=10
 # zsh-completions from homebrew
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+# zsh-syntax-highlighting
+if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 # Fix ^U to behave correctly
 bindkey ^U backward-kill-line
 

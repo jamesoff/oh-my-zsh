@@ -55,6 +55,12 @@ if [ -d /Users/james/bin ]; then
 	export PATH=$PATH:/Users/james/bin
 fi
 
+if [ $( hostname -s ) = "yukino" ]; then
+	# At work
+	hash -d puppet=/Users/jseward/src/puppet
+	hash -d sm5=/Users/jseward/src/sm5
+fi
+
 export COPYFILE_DISABLE=true
 
 if [ -f /usr/local/bin/aws_zsh_completer.sh ]; then

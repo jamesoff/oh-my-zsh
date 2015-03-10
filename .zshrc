@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew osx redis-cli battery ec2 zsh-syntax-highlighting svn)
+plugins=(git brew osx redis-cli battery ec2 zsh-syntax-highlighting svn iterm-tab-colour)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,3 +94,11 @@ function fuck() {
 	fi
 }
 export EDITOR=vim
+PERL_MB_OPT="--install_base \"/Users/jseward/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jseward/perl5"; export PERL_MM_OPT;
+
+alias md5sum=md5
+
+function tidy_nagios() {
+	python ~/src/puppet/modules/nagios/tidy_nagios.py "$1" > "${1}_tmp" && mv "$1_tmp" "$1"
+}

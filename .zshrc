@@ -102,3 +102,4 @@ alias md5sum=md5
 function tidy_nagios() {
 	python ~/src/puppet/modules/nagios/tidy_nagios.py "$1" > "${1}_tmp" && mv "$1_tmp" "$1"
 }
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

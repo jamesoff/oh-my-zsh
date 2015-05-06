@@ -93,7 +93,7 @@ function fuck() {
 		echo
 	fi
 }
-export EDITOR=vim
+export EDITOR=nvim
 PERL_MB_OPT="--install_base \"/Users/jseward/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/jseward/perl5"; export PERL_MM_OPT;
 
@@ -103,3 +103,10 @@ function tidy_nagios() {
 	python ~/src/puppet/modules/nagios/tidy_nagios.py "$1" > "${1}_tmp" && mv "$1_tmp" "$1"
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias vim=nvim
+
+function remove-ami-and-disk {
+   SNAPSHOT=$( aws ec2 describe-images --image-ids $1 | jq -r ".Images[].BlockDeviceMappings[].Ebs.SnapshotId" | grep -vF null )
+   aws ec2 deregister-image --image-id $1 && aws ec2 delete-snapshot --snapshot-id $SNAPSHOT
+}

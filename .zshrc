@@ -110,3 +110,8 @@ function remove-ami-and-disk {
    SNAPSHOT=$( aws ec2 describe-images --image-ids $1 | jq -r ".Images[].BlockDeviceMappings[].Ebs.SnapshotId" | grep -vF null )
    aws ec2 deregister-image --image-id $1 && aws ec2 delete-snapshot --snapshot-id $SNAPSHOT
 }
+
+if [ -x $( which ccat ) ]; then
+	alias cat=$( which ccat )
+fi
+

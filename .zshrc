@@ -115,3 +115,6 @@ if [ -x $( which ccat ) ]; then
 	alias cat=$( which ccat )
 fi
 
+agvim () {
+	nvim $(ag --color "$1" | fzf --ansi | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ')
+}

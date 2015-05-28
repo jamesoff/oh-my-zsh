@@ -50,12 +50,12 @@ if [ "x$AWS_PLUGIN" = "x1" ]; then
 	RPROMPT='$(aws_prompt) '$RPROMPT
 fi
 
-ZSH_THEME_GIT_PROMPT_PREFIX=":%{$fg[yellow]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[yellow]%}±"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{161}!%{$reset_color%}"
 
-ZSH_THEME_SVN_PROMPT_PREFIX=":%{$fg_bold[red]%}"
+ZSH_THEME_SVN_PROMPT_PREFIX=" %{$fg_bold[red]%}𝑺"
 ZSH_THEME_SVN_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_SVN_PROMPT_CLEAN=""
 ZSH_THEME_SVN_PROMPT_DIRTY="%F{161}!%{$reset_color%}"

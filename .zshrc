@@ -111,8 +111,8 @@ function remove-ami-and-disk {
    aws ec2 deregister-image --image-id $1 && aws ec2 delete-snapshot --snapshot-id $SNAPSHOT
 }
 
-if [ -x $( which ccat ) ]; then
-	alias cat=$( which ccat )
+if [ -x /usr/local/bin/ccat ]; then
+	alias cat=/usr/local/bin/ccat
 fi
 
 agvim () {

@@ -45,7 +45,7 @@ plugins=(git brew osx redis-cli battery ec2 zsh-syntax-highlighting svn iterm-ta
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin:/Users/james/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/X11R6/bin:/Users/james/bin
 
 if [ -d /Users/james/pebble ]; then
 	export PATH=$PATH:/Users/james/pebble/PebbleSDK-2.0.0/bin

@@ -118,3 +118,8 @@ fi
 agvim () {
 	nvim $(ag --color "$1" | fzf --ansi | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ')
 }
+
+watch_elb () {
+	watch -n 10 "aws elb describe-instance-health --load-balancer-name "$1" | jq '.InstanceStates[].State' | sort | uniq -c"
+}
+
